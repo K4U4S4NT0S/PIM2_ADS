@@ -1,0 +1,21 @@
+{
+  "courses": [
+    {
+      "id": "course_1",
+      "nome": "Programacao I",
+      "aulas": [
+        {
+          "id": "aula_1",
+          "titulo": "Introducao",
+          "conteudo": "Conteudo da aula 1"
+        },
+        {
+          "id": "aula_2",
+          "titulo": "Variaveis",
+          "conteudo": "Conteudo da aula 2"
+        }
+      ],
+      "avaliacoes": []
+    }
+  ]
+}
