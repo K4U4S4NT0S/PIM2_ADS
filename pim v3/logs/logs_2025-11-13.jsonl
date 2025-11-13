@@ -1,0 +1,20 @@
+{"timestamp": "2025-11-13 16:11:00", "type": "INFO", "usuario": null, "mensagem": "Aplicacao iniciada"}
+{"timestamp": "2025-11-13 16:11:26", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Cadastro aluno efetuado"}
+{"timestamp": "2025-11-13 16:11:27", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 16:11:43", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 16:11:49", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 16:11:57", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 16:12:14", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "IA query: Qual meu nome?"}
+{"timestamp": "2025-11-13 16:12:32", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 16:12:41", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "IA query: como me cadastrar"}
+{"timestamp": "2025-11-13 16:12:45", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 16:12:52", "type": "INFO", "usuario": null, "mensagem": "Aplicacao encerrada"}
+{"timestamp": "2025-11-13 17:32:23", "type": "INFO", "usuario": null, "mensagem": "Aplicacao iniciada"}
+{"timestamp": "2025-11-13 17:33:27", "type": "ERROR", "usuario": "igorb@gmail.com", "mensagem": "Cadastro aluno - email duplicado"}
+{"timestamp": "2025-11-13 17:34:04", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 17:34:18", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 17:34:26", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 17:34:47", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 17:34:58", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "IA query: como me cadastrar"}
+{"timestamp": "2025-11-13 17:35:04", "type": "INFO", "usuario": "igorb@gmail.com", "mensagem": "Aluno abriu menu"}
+{"timestamp": "2025-11-13 17:35:14", "type": "INFO", "usuario": null, "mensagem": "Aplicacao encerrada"}

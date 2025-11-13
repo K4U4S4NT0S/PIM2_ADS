@@ -1,0 +1,4 @@
+﻿colorama
+matplotlib
+requests
+flask

@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "role": "admin",
+    "name": "Administrator",
+    "email": "jt/SBF0=",
+    "cpf": "",
+    "dob": "",
+    "genero": "",
+    "password_hash": "WEGH4n+eR4fWfewfSH29rHELbnL1AKfNn4qAQSeAMh1vsCnC83eH5Mt0+rW8mMCI"
+  },
+  {
+    "id": 2,
+    "role": "aluno",
+    "name": "igor",
+    "email": "htzQH1EyLQApJzVCWjge",
+    "cpf": "",
+    "dob": "12-11-2006",
+    "genero": "masculino",
+    "password_hash": "4pwYdFd3p+RtHQvUUvIBZzTi9RBrBL/6sYIATSFOzzaW0lYArOijL8KgUhDFzpki"
+  }
+]
