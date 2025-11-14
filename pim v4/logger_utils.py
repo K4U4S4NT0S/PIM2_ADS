@@ -1,4 +1,4 @@
-﻿# logger_utils.py - grava eventos em logs/ (jsonl minimal)
+# logger_utils.py - grava eventos em logs/ (jsonl minimal)
 import os
 import json
 import datetime

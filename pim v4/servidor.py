@@ -1,5 +1,5 @@
-﻿# servidor.py - exibe logs do dia no console do servidor
-import time, os
+# servidor.py - exibe logs do dia no console do servidor
+import time
 from logger_utils import ler_eventos
 
 CSI = "\033["

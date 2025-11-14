@@ -1,0 +1,22 @@
+{
+  "checks": [
+    [
+      "get_instance",
+      true
+    ],
+    [
+      "criar_curso",
+      true,
+      2
+    ],
+    [
+      "criar_aula",
+      true,
+      1
+    ],
+    [
+      "deletar_aula",
+      true
+    ]
+  ]
+}

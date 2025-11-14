@@ -2,3 +2,4 @@
 matplotlib
 requests
 flask
+reportlab>=3.6.0

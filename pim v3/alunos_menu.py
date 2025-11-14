@@ -1,136 +1,217 @@
-﻿# alunos_menu.py
-import time, getpass, os
-import logger_utils
-from integrated_data_store import find_usuario_por_email, add_usuario, verify_credentials_email, decrypt_text, load_cursos, aulas_por_curso, calcular_media_aula, adicionar_avaliacao, update_usuario
+﻿import os
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
 
-def aluno_menu(user):
-    def clear(): os.system("cls" if os.name=="nt" else "clear")
-    while True:
-        clear()
-        logger_utils.registrar_evento("INFO", "Aluno abriu menu", usuario=decrypt_text(user.get("email")))
-        print("--- Menu Aluno ---")
-        print("1 - Perfil")
-        print("2 - Cursos disponiveis")
-        print("3 - Assistente IA")
-        print("0 - Voltar")
-        op = input("> ").strip()
-        if op == "1":
-            perfil_submenu_aluno(user)
-        elif op == "2":
-            cursos = load_cursos()
-            for c in cursos:
-                print(f"ID:{c.get('id')} - {c.get('nome')} - {c.get('descricao')}")
-            cid = input("Digite ID do curso para ver aulas (ou enter para voltar): ").strip()
-            if cid:
-                try: cid = int(cid)
-                except: print("ID invalido"); time.sleep(1); continue
-                aulas = aulas_por_curso(cid)
-                for a in aulas:
-                    print(f"ID:{a.get('id')} - {a.get('titulo')} - Prof:{a.get('professor_id')} - Media:{calcular_media_aula(a.get('id'))}")
-                escolha = input("Digite ID da aula para avaliar (ou enter para voltar): ").strip()
-                if escolha:
-                    try:
-                        aid = int(escolha)
-                        avaliar_aula_flow(user, aid)
-                    except:
-                        print("ID invalido"); time.sleep(1)
-                input("ENTER para voltar")
-        elif op == "3":
-            from ai_module import answer_faq, recommend_courses_for_user, log_query
-            clear()
-            print('--- Assistente IA ---')
-            print('1 - Perguntas frequentes (FAQ)')
-            print('2 - Recomendar cursos')
-            print('0 - Voltar')
-            sub = input('> ').strip()
-            if sub == '1':
-                q = input('Digite sua pergunta: ').strip()
-                resp = answer_faq(q)
-                log_query(user, q)
-                print('\\n' + resp)
-                input('ENTER para voltar')
-            elif sub == '2':
-                recs = recommend_courses_for_user(user)
-                if not recs:
-                    print('Sem cursos para recomendar')
-                else:
-                    print('Cursos recomendados:')
-                    for c in recs:
-                        print(f"ID:{c.get('id')} - {c.get('nome')} - {c.get('descricao')}")
-                input('ENTER para voltar')
-            elif sub == '0':
-                pass
-        elif op == "0":
-            return
-        else:
-            print("Opcao invalida"); time.sleep(1)
+from integrated_data_store import (
+    DataStore,
+    decrypt_text
+)
 
+data = DataStore()
+
+
+# ================================================================
+# CADASTRO DE ALUNO
+# ================================================================
 def cadastrar_aluno_flow():
-    clear = lambda: os.system("cls" if os.name=="nt" else "clear")
-    clear()
-    print("--- Cadastro de Aluno ---")
-    name = input("Nome completo: ").strip()
+    print("\n=== Cadastro de Aluno ===")
+
+    nome = input("Nome completo: ").strip()
     email = input("Email: ").strip()
-    dob = input("Data nascimento (YYYY-MM-DD): ").strip()
-    genero = input("Genero (masculino/feminino/outro): ").strip().lower()
-    senha = getpass.getpass("Senha: ")
-    co = getpass.getpass("Confirmar senha: ")
-    if senha != co:
-        logger_utils.registrar_evento("ERROR", "Cadastro aluno - co-senha diferente", usuario=email)
-        print("Senhas diferentes. Cancelando.")
-        time.sleep(1); return None
-    if find_usuario_por_email(email):
-        logger_utils.registrar_evento("ERROR", "Cadastro aluno - email duplicado", usuario=email)
-        print("Email ja cadastrado."); time.sleep(1); return None
-    u = add_usuario({"role":"aluno","name":name,"email":email,"dob":dob,"genero":genero,"password":senha})
-    logger_utils.registrar_evento("INFO", "Cadastro aluno efetuado", usuario=email)
-    print("Cadastro realizado com sucesso!"); time.sleep(1)
-    return u
+    senha = input("Senha: ").strip()
 
-def perfil_submenu_aluno(user):
+    # proteção para lista vazia
+    novo_id = len(data.alunos) + 1 if data.alunos else 1
+
+    cursos = data.cursos
+
+    print("\nCursos disponíveis:")
+    for c in cursos:
+        print(f"{c['id']} - {c['nome']}")
+
+    # proteção contra erro ao digitar curso inválido
     while True:
-        clear = lambda: os.system("cls" if os.name=="nt" else "clear"); clear()
-        print("=== PERFIL DO ALUNO ===")
-        print("1. Ver meus dados")
-        print("2. Alterar e-mail")
-        print("3. Alterar senha")
-        print("4. Alterar data de nascimento")
-        print("5. Alterar genero")
-        print("0. Voltar")
-        op = input("> ").strip()
-        if op == "1":
-            print("ID:", user.get("id"))
-            print("Nome:", user.get("name"))
-            print("Email:", decrypt_text(user.get("email")))
-            print("Data Nasc:", user.get("dob"))
-            print("Genero:", user.get("genero"))
-            input("ENTER para voltar")
-        elif op == "2":
-            novo = input("Novo email: ").strip()
-            if find_usuario_por_email(novo):
-                print("Email em uso."); logger_utils.registrar_evento("ERROR", "Perfil aluno - email duplicado", usuario=decrypt_text(user.get("email"))); time.sleep(1); continue
-            update_usuario(user.get("id"), {"email": novo})
-            logger_utils.registrar_evento("INFO", "Perfil aluno - email alterado", usuario=novo)
-            print("Email atualizado."); time.sleep(1)
-        elif op == "3":
-            atual = getpass.getpass("Senha atual: ")
-            if not verify_credentials_email(decrypt_text(user.get("email")), atual):
-                print("Senha atual incorreta."); logger_utils.registrar_evento("ERROR", "Perfil aluno - senha atual incorreta", usuario=decrypt_text(user.get("email"))); time.sleep(1); continue
-            nova = getpass.getpass("Nova senha: "); co = getpass.getpass("Confirmar nova senha: ")
-            if nova != co: print("Confirmacao nao confere."); logger_utils.registrar_evento("ERROR", "Perfil aluno - co-senha diferente", usuario=decrypt_text(user.get("email"))); time.sleep(1); continue
-            update_usuario(user.get("id"), {"password": nova}); logger_utils.registrar_evento("INFO", "Perfil aluno - senha alterada", usuario=decrypt_text(user.get("email"))); print("Senha alterada."); time.sleep(1)
-        elif op == "4":
-            novo = input("Nova data de nascimento (YYYY-MM-DD): ").strip(); update_usuario(user.get("id"), {"dob": novo}); logger_utils.registrar_evento("INFO", "Perfil aluno - dob alterada", usuario=decrypt_text(user.get("email"))); print("Atualizado."); time.sleep(1)
-        elif op == "5":
-            novo = input("Genero (masculino/feminino/outro): ").strip().lower(); update_usuario(user.get("id"), {"genero": novo}); logger_utils.registrar_evento("INFO", "Perfil aluno - genero alterado", usuario=decrypt_text(user.get("email"))); print("Atualizado."); time.sleep(1)
-        elif op == "0": return
-        else: print("Opcao invalida"); time.sleep(1)
+        try:
+            curso_id = int(input("ID do curso: ").strip())
+            break
+        except ValueError:
+            print("Digite um número válido.")
 
-def avaliar_aula_flow(user, aula_id):
-    try: nota = int(input("Nota (1-5): ").strip())
-    except: print("Nota invalida"); time.sleep(1); return
-    comentario = input("Comentario (opcional): ").strip()
-    adicionar_avaliacao(aula_id, user.get("id"), nota, comentario)
-    media = calcular_media_aula(aula_id)
-    logger_utils.registrar_evento("INFO", f"Aluno avaliou aula {aula_id} com {nota}", usuario=decrypt_text(user.get("email")))
-    print(f"Avaliacao registrada. Media atual: {media}"); input("ENTER para voltar")
+    aluno = {
+        "id": novo_id,
+        "name": nome,
+        "email": email,
+        "senha": senha,
+        "curso_id": curso_id
+    }
+
+    data.cadastrar_aluno(aluno)
+
+    data.adicionar_usuario({
+        "id": novo_id,
+        "name": nome,
+        "email": email,
+        "senha": senha,
+        "role": "aluno"
+    })
+
+    print("\nAluno cadastrado com sucesso!")
+    return aluno
+
+
+# ================================================================
+# MENU DO ALUNO
+# ================================================================
+def aluno_menu(user):
+    while True:
+        print("\n===== MENU DO ALUNO =====")
+        print("1 - Ver meus dados")
+        print("2 - Ver minhas notas")
+        print("3 - Gerar boleto PDF")
+        print("0 - Sair\n")
+
+        op = input("> ").strip()
+
+        if op == "1":
+            mostrar_dados_aluno(user)
+
+        elif op == "2":
+            mostrar_notas_aluno(user)
+
+        elif op == "3":
+            gerar_boleto_pdf(user)
+
+        elif op == "0":
+            break
+        else:
+            print("Opcao inválida!")
+
+
+# ================================================================
+# MOSTRAR DADOS DO ALUNO
+# ================================================================
+def mostrar_dados_aluno(user):
+    print("\n===== MEUS DADOS =====")
+    print(f"ID: {user['id']}")
+    print(f"Nome: {user['name']}")
+
+    # email pode estar criptografado ou não
+    email_raw = user.get("email", "")
+    try:
+        email_dec = decrypt_text(email_raw)
+    except Exception:
+        email_dec = email_raw
+
+    print(f"Email: {email_dec}")
+    print(f"Genero: {user.get('genero', 'Indefinido')}")
+    print(f"Data nascimento: {user.get('dob', '---')}")
+
+
+# ================================================================
+# NOTAS DO ALUNO
+# ================================================================
+def mostrar_notas_aluno(user):
+
+    avaliacoes = data.avaliacoes
+    aulas = data.aulas
+
+    print("\n===== MINHAS NOTAS =====")
+
+    notas = []
+    for aula in aulas:
+        avs = [
+            x for x in avaliacoes
+            if x["aula_id"] == aula["id"] and x["usuario_id"] == user["id"]
+        ]
+
+        if not avs:
+            continue
+
+        nota = avs[-1].get("nota", 0)
+        notas.append(nota)
+
+        print(f"Aula: {aula['titulo']}  | Nota: {nota}")
+
+    if not notas:
+        print("\nNenhuma nota encontrada.")
+        return
+
+    media = sum(notas) / len(notas)
+    situacao = "Aprovado" if media >= 6 else "Reprovado"
+
+    print(f"\nMédia final: {media:.2f}")
+    print(f"Situação: {situacao}")
+
+
+# ================================================================
+# GERAR BOLETO PDF
+# ================================================================
+def gerar_boleto_pdf(user):
+
+    avaliacoes = data.avaliacoes
+    aulas = data.aulas
+
+    pasta = "boletos"
+    if not os.path.exists(pasta):
+        os.makedirs(pasta)
+
+    caminho = os.path.join(pasta, f"boleto_aluno_{user['id']}.pdf")
+
+    c = canvas.Canvas(caminho, pagesize=A4)
+    largura, altura = A4
+
+    y = altura - 50
+
+    c.setFont("Helvetica-Bold", 20)
+    c.drawString(50, y, "Boleto / Relatório do Aluno")
+    y -= 40
+
+    # email seguro
+    email_raw = user.get("email", "")
+    try:
+        email_dec = decrypt_text(email_raw)
+    except Exception:
+        email_dec = email_raw
+
+    c.setFont("Helvetica", 12)
+    c.drawString(50, y, f"Nome: {user['name']}")
+    y -= 20
+    c.drawString(50, y, f"Email: {email_dec}")
+    y -= 20
+
+    # Notas
+    y -= 25
+    c.setFont("Helvetica-Bold", 14)
+    c.drawString(50, y, "Notas por Aula:")
+    y -= 25
+
+    notas = []
+    for aula in aulas:
+        avs = [
+            a for a in avaliacoes
+            if a["aula_id"] == aula["id"] and a["usuario_id"] == user["id"]
+        ]
+
+        if avs:
+            nota = avs[-1].get("nota", 0)
+            notas.append(nota)
+
+            c.setFont("Helvetica", 12)
+            c.drawString(60, y, f"{aula['titulo']}: {nota}")
+            y -= 20
+
+    if notas:
+        media = sum(notas) / len(notas)
+        situacao = "Aprovado" if media >= 6 else "Reprovado"
+
+        y -= 10
+        c.drawString(50, y, f"Média Final: {media:.2f}")
+        y -= 20
+        c.drawString(50, y, f"Situação: {situacao}")
+    else:
+        c.drawString(60, y, "Nenhuma nota encontrada.")
+
+    c.showPage()
+    c.save()
+
+    print(f"\n📄 Boleto gerado com sucesso em: {caminho}")

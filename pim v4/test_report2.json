@@ -1,0 +1,50 @@
+{
+  "proj_root": "/mnt/data/work_run_tests/pim_v3_final_allchanges_ready_v8_integration_menu",
+  "checks": [
+    {
+      "check": "import_integrated_data_store",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "check": "get_datastore_instance",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "check": "cadastrar_usuario",
+      "ok": true,
+      "info": "id=3"
+    },
+    {
+      "check": "autenticar",
+      "ok": true,
+      "info": "auth_ok=True"
+    },
+    {
+      "check": "password_fields",
+      "ok": true,
+      "info": "fields=('a70df138d5afffa9fc506fa346b97a3a', '5a6e6853a6fc79689e0630239c71f92728b9907b7e48d95f357514a5aaa2a18e')"
+    },
+    {
+      "check": "criar_curso",
+      "ok": true,
+      "info": "id=1"
+    },
+    {
+      "check": "cursos_aulas_crud",
+      "ok": false,
+      "info": "Traceback (most recent call last):\n  File \"/tmp/ipykernel_12/399026929.py\", line 54, in <module>\n    updated = ids.atualizar_curso(newc.get(\"id\"), {\"titulo\":\"Curso Teste Y\"})\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/work_run_tests/pim_v3_final_allchanges_ready_v8_integration_menu/integrated_data_store.py\", line 343, in atualizar_curso\n    return atualizar_curso(curso_id, novo)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/work_run_tests/pim_v3_final_allchanges_ready_v8_integration_menu/integrated_data_store.py\", line 343, in atualizar_curso\n    return atualizar_curso(curso_id, novo)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/data/work_run_tests/pim_v3_final_allchanges_ready_v8_integration_menu/integrated_data_store.py\", line 343, in atualizar_curso\n    return atualizar_curso(curso_id, novo)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  [Previous line repeated 2970 more times]\nRecursionError: maximum recursion depth exceeded\n"
+    },
+    {
+      "check": "import_main",
+      "ok": true,
+      "info": ""
+    },
+    {
+      "check": "main_callable",
+      "ok": true,
+      "info": ""
+    }
+  ]
+}

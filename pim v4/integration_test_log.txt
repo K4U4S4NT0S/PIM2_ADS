@@ -1,0 +1,5 @@
+[2025-11-14T03:34:40.382211] Aluno cadastrado: aluno_test@x (id 2)
+[2025-11-14T03:34:40.382577] Aluno auto-logado.
+[2025-11-14T03:34:40.383933] Aluno menu simulated flow completed.
+[2025-11-14T03:34:40.384005] Matriculas do aluno após fluxo: [{'id': 1, 'aluno_id': 2, 'aula_id': 1}]
+[2025-11-14T03:34:40.384205] Boletins gerados: []

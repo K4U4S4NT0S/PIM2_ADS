@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "name": "igor",
+    "email": "bonfim@gmail.com",
+    "senha": "123456",
+    "curso_id": 1
+  }
+]
