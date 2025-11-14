@@ -1,10 +1,10 @@
-=================================================================================
+===========================================================================
 🎓 PIM V3 — Sistema Acadêmico em Python (Terminal)
 
 Um sistema acadêmico completo desenvolvido em Python para execução via terminal.
 O projeto implementa autenticação por papéis (Admin, Professor e Aluno), CRUDs, gerenciamento de aulas, atividades, notas, logs e um chat IA simulado.
 
-=================================================================================
+===========================================================================
 📌 Sumário
 
 Visão Geral
@@ -17,7 +17,7 @@ Visão Geral
 - Melhorias Futuras
 - Autores
 
-=================================================================================
+===========================================================================
 📘 Visão Geral
 
 Este projeto foi desenvolvido para o PIM (Projeto Integrado Multidisciplinar).
@@ -25,7 +25,7 @@ O sistema simula um ambiente acadêmico interno, permitindo o gerenciamento de a
 
 Ele foi projetado para ser modular, simples de utilizar e fácil de expandir.
 
-=================================================================================
+===========================================================================
 🚀 Funcionalidades
 🔐 Autenticação
 
@@ -35,7 +35,7 @@ Ele foi projetado para ser modular, simples de utilizar e fácil de expandir.
 - Professor
 - Aluno
 
-=================================================================================
+===========================================================================
 🛠️ Administrador (Admin)
 
 Permite:
@@ -48,7 +48,7 @@ Permite:
 - Visualizar e gerar logs
 - Criar backups dos dados
 
-=================================================================================
+===========================================================================
 👨‍🏫 Professor
 
 O professor pode:
@@ -60,7 +60,7 @@ O professor pode:
 - Ver agenda de aulas
 - Visualizar relatórios
 
-=================================================================================
+===========================================================================
 👨‍🎓 Aluno
 
 O aluno tem acesso a:
@@ -74,14 +74,14 @@ O aluno tem acesso a:
 🤖 IA Simulada
 - O projeto inclui um módulo de IA mockado que responde perguntas básicas, simulando um assistente interno.
 
-=================================================================================
+===========================================================================
 📝 Logs e Auditoria
 
 - Armazenados em JSONL
 - Registram ações, erros e operações CRUD
 - Trazem maior rastreabilidade ao sistema
 
-=================================================================================
+===========================================================================
 📂 Estrutura do Projeto
 pim_v3/
 ├── admin_menu.py
@@ -114,7 +114,7 @@ pim_v3/
 │   └── logs_YYYY-MM-DD.jsonl
 └── requirements.txt
 
-=================================================================================
+===========================================================================
 🛠️ Instalação
 
 1️⃣ Clone o repositório
@@ -124,13 +124,13 @@ cd SEU-REPO
 2️⃣ Instale as dependências
 pip install -r requirements.txt
 
-=================================================================================
+===========================================================================
 ▶️ Como Executar
 
 Execute o sistema com:
 python app/main.py
 
-=================================================================================
+===========================================================================
 🧰 Tecnologias Utilizadas
 
 - Python 3.10+
