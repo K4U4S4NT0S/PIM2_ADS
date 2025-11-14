@@ -29,6 +29,7 @@ O sistema simula um ambiente acadêmico interno, permitindo o gerenciamento de a
 Ele foi projetado para ser modular, simples de utilizar e fácil de expandir.
 
 ===========================================================================
+
 🚀 Funcionalidades
 🔐 Autenticação
 
@@ -39,6 +40,7 @@ Ele foi projetado para ser modular, simples de utilizar e fácil de expandir.
 - Aluno
 
 ===========================================================================
+
 🛠️ Administrador (Admin)
 
 Permite:
@@ -52,6 +54,7 @@ Permite:
 - Criar backups dos dados
 
 ===========================================================================
+
 👨‍🏫 Professor
 
 O professor pode:
@@ -64,6 +67,7 @@ O professor pode:
 - Visualizar relatórios
 
 ===========================================================================
+
 👨‍🎓 Aluno
 
 O aluno tem acesso a:
@@ -78,6 +82,7 @@ O aluno tem acesso a:
 - O projeto inclui um módulo de IA mockado que responde perguntas básicas, simulando um assistente interno.
 
 ===========================================================================
+
 📝 Logs e Auditoria
 
 - Armazenados em JSONL
@@ -85,6 +90,7 @@ O aluno tem acesso a:
 - Trazem maior rastreabilidade ao sistema
 
 ===========================================================================
+
 📂 Estrutura do Projeto
 pim_v3/
 ├── admin_menu.py
@@ -118,6 +124,7 @@ pim_v3/
 └── requirements.txt
 
 ===========================================================================
+
 🛠️ Instalação
 
 1️⃣ Clone o repositório
@@ -127,13 +134,13 @@ cd SEU-REPO
 2️⃣ Instale as dependências
 pip install -r requirements.txt
 
-===========================================================================
 ▶️ Como Executar
 
 Execute o sistema com:
 python app/main.py
 
 ===========================================================================
+
 🧰 Tecnologias Utilizadas
 
 - Python 3.10+
