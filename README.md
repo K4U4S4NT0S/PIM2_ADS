@@ -118,7 +118,7 @@ pim_v3/
 🛠️ Instalação
 
 1️⃣ Clone o repositório
-git clone https://github.com/SEU-USUARIO/SEU-REPO.git
+git clone https://github.com/K4U4S4NT0S/PIM2_ADS.git
 cd SEU-REPO
 
 2️⃣ Instale as dependências
