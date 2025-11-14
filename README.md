@@ -1,10 +1,12 @@
-===========================================================================
+=========================================================================== \n
+
 🎓 PIM V3 — Sistema Acadêmico em Python (Terminal)
 
 Um sistema acadêmico completo desenvolvido em Python para execução via terminal.
 O projeto implementa autenticação por papéis (Admin, Professor e Aluno), CRUDs, gerenciamento de aulas, atividades, notas, logs e um chat IA simulado.
 
 ===========================================================================
+
 📌 Sumário
 
 Visão Geral
@@ -18,6 +20,7 @@ Visão Geral
 - Autores
 
 ===========================================================================
+
 📘 Visão Geral
 
 Este projeto foi desenvolvido para o PIM (Projeto Integrado Multidisciplinar).
