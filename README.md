@@ -1,4 +1,4 @@
-=========================================================================== \n
+=========================================================================== 
 
 🎓 PIM V3 — Sistema Acadêmico em Python (Terminal)
 
@@ -94,33 +94,61 @@ O aluno tem acesso a:
 📂 Estrutura do Projeto
 pim_v3/
 ├── admin_menu.py
+
 ├── aluno_menu.py
+
 ├── professores_menu.py
+
 ├── ai_module.py
+
 ├── app/
+
 │   ├── auth.py
+
 │   ├── db.py
+
 │   ├── logs.py
+
 │   ├── main.py
+
 │   ├── main_menu.py
+
 │   ├── database/
+
 │   │   ├── aluno_manager.py
+
 │   │   ├── professor_manager.py
+
 │   │   ├── turma_manager.py
+
 │   │   ├── aulas_manager.py
+
 │   │   ├── atividades_manager.py
+
 │   │   ├── database_manager.py
+
 │   │   ├── file_manager.py
+
 │   │   └── json/
+
 │   │       ├── alunos.json
+
 │   │       ├── professores.json
+
 │   │       ├── turmas.json
+
 │   │       ├── aulas.json
+
 │   │       ├── atividades.json
+
 │   │       ├── cursos.json
+
 │   │       └── usuarios.json
+
 ├── logs/
+
 │   └── logs_YYYY-MM-DD.jsonl
+
 └── requirements.txt
 
 ===========================================================================
