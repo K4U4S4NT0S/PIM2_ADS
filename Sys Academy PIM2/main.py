@@ -6,7 +6,7 @@ def _clear():
     else:
         os.system('clear')
 
-# main.py - entrada do sistema v11 (compatível com nova DataStore)
+# main.py - entrada do sistema
 import os, time, getpass
 from integrated_data_store import DataStore
 import logger_utils
