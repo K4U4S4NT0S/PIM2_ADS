@@ -2,7 +2,7 @@
 title Inicializador PIM2_ADS_FINAL_v10
 color 0A
 echo =============================================
-echo   SISTEMA PIM2_ADS FINAL FULL v10 - INICIALIZADOR
+echo   SYS ACADEMY INICIALIZADOR
 echo =============================================
 echo.
 
@@ -20,11 +20,11 @@ echo.
 
 echo Instalando dependencias...
 python -m pip install --upgrade pip
-python -m pip install colorama matplotlib flask requests >nul
+python -m pip install bcrypt reportlab getpass colorama matplotlib flask requests >nul
 
 echo Iniciando servidor e cliente...
 start "Servidor PIM2" cmd /k "title Servidor PIM2 && python servidor.py"
 start "Cliente PIM2" cmd /k "title Cliente PIM2 && python client.py"
 
 echo Sistema iniciado.
-pause
+exit
