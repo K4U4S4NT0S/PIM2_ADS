@@ -1,5 +1,0 @@
-bcrypt
-matplotlib
-pandas
-plantuml
-python-dotenv
