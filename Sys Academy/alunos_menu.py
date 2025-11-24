@@ -51,8 +51,8 @@ def cadastrar_aluno_flow():
     data = DataStore.get_instance()
 
     _clear()
-    print("\n" + "="*40)
-    print("CADASTRO DE ALUNO")
+    print("="*40)
+    print("Sys Academy - CADASTRO DE ALUNO")
     print("="*40)
 
     try:
@@ -85,7 +85,7 @@ def cadastrar_aluno_flow():
             return None
 
         # Senha para login (oculta) com confirmação
-        senha = getpass.getpass("Senha (mínimo 4 caracteres) — será usada para login: ").strip()
+        senha = getpass.getpass("Senha (mínimo 4 caracteres): ").strip()
         if len(senha) < 4:
             print("Senha muito curta. Cadastro cancelado.")
             return None
@@ -162,7 +162,9 @@ def cadastrar_aluno_flow():
 def aluno_menu(user):
     _clear()
     while True:
-        print("\n===== MENU DO ALUNO =====")
+        print("="*40)
+        print("Sys Academy - MENU DO ALUNO")
+        print("="*40)
         print("1 - Ver meus dados")
         print("2 - Ver minhas notas")
         print("3 - Gerar relatorio em PDF")
@@ -175,7 +177,9 @@ def aluno_menu(user):
         if op == "1":
             # Mostrar dados basicos do usuario
             _clear()
-            print("\n===== MEUS DADOS =====")
+            print("="*40)
+            print("Sys Academy - MEUS DADOS")
+            print("="*40)
             try:
                 from integrated_data_store import DataStore
                 data = DataStore.get_instance()
@@ -200,7 +204,9 @@ def aluno_menu(user):
             _clear()
         elif op == "2":
             _clear()
-            print("\n===== MINHAS NOTAS =====")
+            print("="*40)
+            print("Sys Academy - MINHAS NOTAS")
+            print("="*40)
             # tenta recuperar notas se existir estrutura
             try:
                 notas = getattr(data, 'notas', [])
@@ -272,7 +278,9 @@ def mostrar_cursos_aluno(user):
         input("ENTER para voltar")
         return
     while True:
-        print("\n=== Cursos Disponíveis ===")
+        print("="*40)
+        print("Sys Academy - CURSOS DISPONIVEIS")
+        print("="*40)
         for c in cursos:
             cid = c.get('id') or c.get('curso_id') or '(sem id)'
             titulo = c.get('nome') or c.get('titulo') or '(sem nome)'
@@ -315,7 +323,9 @@ def mostrar_cursos_aluno(user):
                 print("Aula não encontrada.")
                 continue
             # mostrar detalhes da aula
-            print("\n--- Detalhes da Aula ---")
+            print("="*40)
+            print("Sys Academy - DETALHES DA AULA")
+            print("="*40)
             print(f"ID: {aula.get('id')}")
             print(f"Titulo: {aula.get('titulo', aula.get('nome','-'))}")
             print(f"Descricao: {aula.get('descricao','-')}")

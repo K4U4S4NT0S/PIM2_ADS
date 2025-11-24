@@ -2,7 +2,7 @@
 title Inicializador PIM2_ADS_FINAL_v10
 color 0A
 echo =============================================
-echo   SYS ACADEMY INICIALIZADOR
+echo   Sys Academy - INICIALIZADOR
 echo =============================================
 echo.
 

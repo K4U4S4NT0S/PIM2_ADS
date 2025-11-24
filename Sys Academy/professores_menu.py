@@ -1,3 +1,4 @@
+# professores_menu_fixed.py - versão corrigida do menu do professor
 import os
 import getpass
 from integrated_data_store import DataStore, load_alunos, adicionar_nota, encrypt_text
@@ -19,7 +20,7 @@ def cadastrar_professor_flow():
     data = DataStore.get_instance()
     _clear()
     print("="*40)
-    print("CADASTRO DE PROFESSOR")
+    print("Sys Academy - CADASTRO DE PROFESSOR")
     print("="*40)
     nome = input("Nome completo: ").strip()
     if not nome:
@@ -65,7 +66,7 @@ def dar_nota_flow(professor_user=None):
     data = DataStore.get_instance()
     _clear()
     print("="*40)
-    print("DAR NOTA A UM ALUNO")
+    print("Sys Academy - NOTAS ALUNOS")
     print("="*40)
     alunos = load_alunos()
     if not alunos:
@@ -115,7 +116,9 @@ def professor_menu(user):
     _clear()
     data = DataStore.get_instance()
     while True:
-        print("\n===== MENU DO PROFESSOR =====")
+        print("="*40)
+        print("Sys Academy - MENU DO PROFESSOR")
+        print("="*40)
         print("1 - Ver meus dados")
         print("2 - Dar nota a um aluno")
         print("3 - Ver meus cursos")
@@ -123,9 +126,10 @@ def professor_menu(user):
         op = input("> ").strip()
         if op == "1":
             _clear()
-            print("\n===== MEUS DADOS =====")
+            print("="*40)
+            print("Sys Academy - MEUS DADOS")
+            print("="*40)
             try:
-                # Mostrar apenas os campos esperados para professor
                 def show(v):
                     return v if v is not None and v != '' else '-'
                 print(f"id: {show(user.get('id'))}")
@@ -134,12 +138,11 @@ def professor_menu(user):
                 print(f"genero: {show(user.get('genero'))}")
                 print(f"idade: {show(user.get('idade'))}")
             except Exception:
-                # fallback mínimo
                 print(f"id: {user.get('id')}")
                 print(f"nome: {user.get('nome')}")
             input("ENTER para voltar")
             _clear()
-
+        elif op == "2":
             dar_nota_flow(professor_user=user)
             _clear()
         elif op == "3":

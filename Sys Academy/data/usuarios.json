@@ -1,0 +1,20 @@
+[
+  {
+    "nome": "igor",
+    "email": "igor.bonfim992@gmail.com",
+    "cpf": "",
+    "role": "aluno",
+    "aluno_id": 1,
+    "id": 1,
+    "senha_salt": "5f8ce91a970be09e0183fbb986407d7b",
+    "senha_hash": "205e17a7558c14490fd14a199716169ea6d76abe87262d3bb6abfd97aa962299"
+  },
+  {
+    "nome": "kaua",
+    "cpf": "NDQ5NjIxODk4NDA=",
+    "role": "professor",
+    "id": 2,
+    "senha_salt": "8a15ab9ceb0d4eb217c7041130979093",
+    "senha_hash": "c3ccf4e9856aecec8d6fd2e225269b33b60f361ed6ad2e0394c8443deea85ab2"
+  }
+]

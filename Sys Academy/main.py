@@ -97,7 +97,9 @@ def main():
 
     while True:
         clear()
-        print("\n" + "="*50 + "\n=== PIM2 ADS ===\nMENU PRINCIPAL\n" + "="*50 + "\n")
+        print("="*40)
+        print("Sys Academy - MENU PRINCIPAL")
+        print("="*40)
         print("1 - Cadastro")
         print("2 - Login")
         print("0 - Sair")
@@ -109,7 +111,9 @@ def main():
         if c == "1":
             while True:
                 clear()
-                print("\n" + "="*50 + "\nMENU PRINCIPAL\n" + "="*50 + "\n === Cadastro ===")
+                print("="*40)
+                print("Sys Academy - MENU DE CADASTRO")
+                print("="*40)
                 print("1 - Cadastrar Aluno")
                 print("2 - Cadastrar Professor")
                 print("0 - Voltar")

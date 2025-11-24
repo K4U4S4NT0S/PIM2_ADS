@@ -11,7 +11,7 @@ def color_code(tipo):
     return CSI + "0m"
 
 def servidor_loop():
-    print("=== Servidor PIM2 ADS Iniciado ===")
+    print("Servidor Sys Academy - INICIADO")
     seen = 0
     try:
         while True:
