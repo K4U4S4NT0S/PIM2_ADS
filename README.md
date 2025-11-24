@@ -1,9 +1,9 @@
 =========================================================================== 
 
-🎓 PIM V3 — Sistema Acadêmico em Python (Terminal)
+🎓 PIM2 - Sys Academy (Terminal)
 
 Um sistema acadêmico completo desenvolvido em Python para execução via terminal.
-O projeto implementa autenticação por papéis (Admin, Professor e Aluno), CRUDs, gerenciamento de aulas, atividades, notas, logs e um chat IA simulado.
+O projeto implementa autenticação por papéis (Admin, Professor e Aluno), CRUDs, gerenciamento de aulas, atividades, notas e logs.
 
 ===========================================================================
 
@@ -48,7 +48,6 @@ Permite:
 - Gerenciar alunos
 - Gerenciar professores
 - Gerenciar turmas
-- Gerenciar atividades
 - Gerenciar aulas
 - Visualizar e gerar logs
 - Criar backups dos dados
@@ -59,12 +58,9 @@ Permite:
 
 O professor pode:
 
-- Ver suas turmas
-- Listar alunos da turma
-- Criar atividades
+- Ver seus dados
+- Gerenciar Aulas
 - Registrar e editar notas
-- Ver agenda de aulas
-- Visualizar relatórios
 
 ===========================================================================
 
@@ -72,14 +68,11 @@ O professor pode:
 
 O aluno tem acesso a:
 
-- Agenda de aulas
-- Notas e atividades
-- Perfil
-- Consulta a cursos
-- Chat IA simulado
-
-🤖 IA Simulada
-- O projeto inclui um módulo de IA mockado que responde perguntas básicas, simulando um assistente interno.
+- Ver seus dados
+- Notas
+- Cursos
+- Boletim
+- Relatorio
 
 ===========================================================================
 
@@ -88,70 +81,6 @@ O aluno tem acesso a:
 - Armazenados em JSONL
 - Registram ações, erros e operações CRUD
 - Trazem maior rastreabilidade ao sistema
-
-===========================================================================
-
-📂 Estrutura do Projeto
-
-pim_v3/
-
-├── admin_menu.py
-
-├── aluno_menu.py
-
-├── professores_menu.py
-
-├── ai_module.py
-
-├── app/
-
-│   ├── auth.py
-
-│   ├── db.py
-
-│   ├── logs.py
-
-│   ├── main.py
-
-│   ├── main_menu.py
-
-│   ├── database/
-
-│   │   ├── aluno_manager.py
-
-│   │   ├── professor_manager.py
-
-│   │   ├── turma_manager.py
-
-│   │   ├── aulas_manager.py
-
-│   │   ├── atividades_manager.py
-
-│   │   ├── database_manager.py
-
-│   │   ├── file_manager.py
-
-│   │   └── json/
-
-│   │       ├── alunos.json
-
-│   │       ├── professores.json
-
-│   │       ├── turmas.json
-
-│   │       ├── aulas.json
-
-│   │       ├── atividades.json
-
-│   │       ├── cursos.json
-
-│   │       └── usuarios.json
-
-├── logs/
-
-│   └── logs_YYYY-MM-DD.jsonl
-
-└── requirements.txt
 
 ===========================================================================
 
