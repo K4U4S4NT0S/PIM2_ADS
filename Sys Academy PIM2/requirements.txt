@@ -1,0 +1,6 @@
+pip
+reportlab
+bcrypt
+matplotlib
+colorama
+getpass

@@ -1,0 +1,3 @@
+2025-11-24 20:19:37,179 [INFO] Teste de log INFO user=test
+2025-11-24 20:19:37,179 [WARNING] Teste de log WARN user=test
+2025-11-24 20:19:37,180 [ERROR] Teste de log ERROR user=test
